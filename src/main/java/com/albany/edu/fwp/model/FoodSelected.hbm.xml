@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="FoodSelected" table="FoodSelected">
+        <id name="selectionId" column="SelectionID">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="student" class="com.albany.edu.fwp.model.Student" fetch="select">
+            <column name="StudentID" not-null="true" />
+        </many-to-one>        
+        <property name="numberOfPlates" type="java.lang.Integer">
+        	<column name="Number_of_plates" length="10" not-null="true"/>
+        </property>
+        <property name="submitDateTime" type="date">
+        	<column name="SubmissionDate" length="25" not-null="true"/>
+        </property>
+        <many-to-one name="foodItems" class="com.albany.edu.fwp.model.FoodItems" fetch="select">
+            <column name="FoodItemID" not-null="true" />
+        </many-to-one> 
+    </class> 
+</hibernate-mapping>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+    <package name="fwp" extends="struts-default">
+         
+        <action name="admin" class="adminActionBean">
+            <result name="success">/WEB-INF/views/admin.jsp</result>
+        </action>
+        
+        <action name="addmanagersubmit" class="adminActionBean" method="addManager">
+            <result name="success">/WEB-INF/views/AddManager.jsp</result>
+        </action>
+        
+        <action name="searchmanagersubmit" class="adminActionBean" method="searchManagers">
+            <result name="success">/WEB-INF/views/AddManager.jsp</result>
+        </action>
+        
+        <action name="student" class="studentActionBean">
+        	<result name="success">/WEB-INF/views/student.jsp</result>
+        	<result name="firstchoice">/WEB-INF/views/student.jsp</result>
+            <result name="edit">/WEB-INF/views/student_edit.jsp</result>
+            <result name="logout" type="redirectAction">
+                <param name='actionName'>login</param>
+            </result>
+        </action>
+        
+        <action name="report" class="reportActionBean">
+            <result name="success">/WEB-INF/views/manager.jsp</result>
+        </action>
+        
+        <action name="manager" class="managerActionBean">
+            <result name="success">/WEB-INF/views/manager.jsp</result>            
+            <result name="logout" type="redirectAction">
+                <param name='actionName'>login</param>
+            </result>
+        </action>
+        <action name="managerselected" class="managerActionBean" method="insertdateid">
+            <result name="edit">/WEB-INF/views/manager_edit.jsp</result>                      
+        </action>
+        
+        <action name="login" class="loginActionBean">
+            <result name="success">/WEB-INF/views/login.jsp</result>
+        </action>
+        
+        <action name="logout" class="logoutActionBean">
+            <result name="success">/WEB-INF/views/login.jsp</result>
+        </action>
+        
+         <action name="feedback" class="feedBackActionBean">
+            <result name="success" type="redirectAction">
+                <param name='actionName'>student</param>
+            </result>
+            <result name="error" type="redirectAction">
+            	<param name='actionName'>student</param>
+            </result> 
+        </action>
+        
+        <action name="setDate" class="setDateActionBean">
+            <result name="success" type="redirectAction">
+                <param name='actionName'>student</param>
+            </result>             
+        </action>
+        
+        <action name="setDatemanager" class="setDateActionBean">
+            <result name="success" type="redirectAction">
+                <param name='actionName'>manager</param>
+            </result>             
+        </action>
+        
+        
+        <action name="loginsubmit" class="loginActionBean" method="matchUIDandPassword">
+            <result name="managersuccess" type="redirectAction">
+                <param name='actionName'>manager</param>
+            </result>
+            <result name="studentsuccess" type="redirectAction">
+                <param name='actionName'>student</param>  
+            </result>
+            <result name="adminsuccess" type="redirectAction">
+                <param name='actionName'>admin</param>
+            </result>
+            <result name="newuserredirection" type="redirectAction">
+            	<param name='actionName'>changePassword</param>
+            	<param name='redirection'>${redirection}</param>
+            </result>
+            <result name="errorpage" type="redirectAction">
+            	<param name='actionName'>login</param>
+            	<param name='err'>${err}</param>
+            </result>       
+        </action>
+        
+        <action name="LoginChangePasswordSubmit" class="loginActionBean" method="newPassword">
+            <result name="managersuccess" type="redirectAction">
+                <param name='actionName'>manager</param>
+            </result>
+            <result name="studentsuccess" type="redirectAction">
+                <param name='actionName'>student</param>
+            </result>
+            <result name="adminsuccess" type="redirectAction">
+                <param name='actionName'>admin</param>
+            </result>
+            <result name="errorpage" type="redirectAction">
+            <param name='actionName'>changePassword</param>
+            <param name='err'>${err}</param>
+            </result>
+        </action>
+        
+        <action name="changePassword" class="loginActionBean" method='changePassword'>
+            <result name="success">/WEB-INF/views/LoginChangePassword.jsp</result>
+        </action>
+        
+        <action name="addmanager" class="adminActionBean">
+            <result name="success">/WEB-INF/views/AddManager.jsp</result>
+        </action>
+        <action name="urlTagAction"	class="adminActionBean" >
+			<result name="success">/WEB-INF/views/AddManager.jsp</result>
+		</action>
+
+		<action name="quadInfo" class="quadActionBean" >
+			<result name="success">/WEB-INF/views/ViewQuads.jsp</result>
+		</action>
+		<action name="quadEdit" class="quadActionBean" >
+			<result name="success">/WEB-INF/views/ViewQuads.jsp</result>
+		</action>
+		
+		<action name="mealCourseInfo" class="mealCourseActionBean" >
+			<result name="success">/WEB-INF/views/ViewMealCourses.jsp</result>
+		</action>
+		<action name="mealCourseEdit" class="mealCourseActionBean" >
+			<result name="success">/WEB-INF/views/ViewMealCourses.jsp</result>
+		</action>
+		
+		<action name="configEdit" class="configActionBean" >
+			<result name="success">/WEB-INF/views/SetConfigurations.jsp</result>
+		</action>
+		
+		<action name="urlTagAction3" class="adminActionBean" >
+			<result name="success">/WEB-INF/views/ViewQuads.jsp</result>
+		</action>
+		
+		<action name="studentedit" class="studentActionBean">
+            <result name="success">/WEB-INF/views/student_edit.jsp</result>
+        </action>
+
+		 <action name="urlTagAction1"	class="adminActionBean" >
+			<result name="success">/WEB-INF/views/ViewQuads.jsp</result>
+		</action>
+		
+		 <action name="urlTagAction2"	class="adminActionBean" >
+			<result name="success">/WEB-INF/views/SetConfigurations.jsp</result>
+		</action>
+		
+		<action name="uploadactionsubmit"	class="uploadActionBean" method='upload' >			
+			<result name="success" type="redirectAction">
+				<param name='actionName'>selectaction</param>
+            	<param name='destPath'>${destPath}</param>            	
+            </result>   
+            <result name="error" type="redirectAction">
+            	<param name='actionName'>uploadaction</param>
+            	<param name='err'>${err}</param>
+            </result>    
+		</action>
+		<action name="uploadaction"	class="uploadActionBean" method='execute'>
+			<result name="success">/WEB-INF/views/browse.jsp</result>			
+		</action>
+		
+		<action name="selectaction"	class="selectActionBean" >		
+			<result name="success" type="redirectAction">
+				<param name='actionName'>uploadaction</param>
+            	<param name='result'>${result}</param>            	
+            </result>		 
+		</action>
+
+        <action name="manageredit" class="managerActionBean">
+           <result name="success">/WEB-INF/views/manager_edit.jsp</result>
+        </action>
+    </package>
+</struts>

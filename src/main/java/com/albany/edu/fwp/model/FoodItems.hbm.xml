@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="FoodItems" table="FoodItems">
+        <id name="foodItemId" type="string" column="FoodItemID">
+        </id>
+        <property name="foodItemName" type="string">
+        	<column name="FoodItem_Name" length="100" not-null="true"/>
+        </property>  
+        <many-to-one name="quadInfo" class="com.albany.edu.fwp.model.QuadInfo" fetch="select">
+            <column name="Quad_ID" not-null="true" />
+        </many-to-one>       
+        <property name="relativeAmount" type="java.lang.Integer">
+        	<column name="Relative_Amount" length="11" not-null="true"/>
+        </property>
+        <property name="relativeServingPlates" type="java.lang.Integer">
+        	<column name="Relative_Serving_Plates" length="11" not-null="true"/>
+        </property>  
+        <many-to-one name="images" class="com.albany.edu.fwp.model.Images" fetch="select">
+            <column name="Image_ID" not-null="true" />
+        </many-to-one>       
+        <property name="calories" type="java.lang.Integer">
+        	<column name="Calories" length="11" not-null="true"/>
+        </property>
+         <many-to-one name="mealCourse" class="com.albany.edu.fwp.model.MealCourse" fetch="select">
+            <column name="MealCourse_ID" not-null="true" />
+        </many-to-one> 
+        <property name="isSelectedInMenu" type="java.lang.Boolean">
+        	<column name="IsSelectedInMenu" length="11" not-null="true" default="false"/>
+        </property>
+        <set name="foodSelections" table="FoodSelected"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FoodItemID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FoodSelected" />
+        </set>
+        <set name="foodByDate" table="FoodDate"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FoodItemID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FoodDate" />
+        </set>
+        
+       
+        
+    </class> 
+</hibernate-mapping>

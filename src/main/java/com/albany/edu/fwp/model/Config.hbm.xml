@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="Config" table="config">
+        <id name="configId" type="java.lang.Integer" column="Config_ID">
+        </id>
+        <property name="managerTime" type="string">
+        	<column name="Manager_Time" length="200" not-null="true"/>
+        </property> 
+        <property name="studentTime" type="string">
+        	<column name="Student_Time" length="200" not-null="true"/>
+        </property>    
+    </class> 
+</hibernate-mapping>

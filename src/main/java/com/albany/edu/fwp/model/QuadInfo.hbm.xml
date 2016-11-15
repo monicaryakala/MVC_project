@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="QuadInfo" table="QuadInfo">
+        <id name="quadId" type="java.lang.Integer" column="Quad_ID">
+        </id>
+        <property name="quadName" type="string">
+        	<column name="Quad_Name" length="100" not-null="true"/>
+        </property>        
+        <set name="foodItems" table="FoodItems"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Quad_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FoodItems" />
+        </set>
+        
+        <set name="feedBack" table="FeedBack"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Quad_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FeedBack" />
+        </set>
+        
+    </class> 
+</hibernate-mapping>

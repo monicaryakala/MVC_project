@@ -1,0 +1,140 @@
+INSERT INTO quadinfo VALUES 
+(10,"Indian"),
+(20,"Dutch"),
+(30,"Colonial"),
+(40,"State");
+
+INSERT INTO mealcourse VALUES 
+(111,"Breakfast"),
+(222,"Lunch"),
+(333,"Dinner");
+
+INSERT INTO images VALUES 
+(1,"resources/img/corn.png"),
+(2,"resources/img/apple.png"),
+(3,"resources/img/bread.png"),
+(4,"resources/img/burger.png"),
+(5,"resources/img/chicken.png"),
+(6,"resources/img/fries.png"),
+(7,"resources/img/lasagna.png"),
+(8,"resources/img/oats.png"),
+(9,"resources/img/pasta.png"),
+(10,"resources/img/peas.png"),
+(11,"resources/img/pizza.png"),
+(12,"resources/img/spaghetti.png"),
+(13,"resources/img/zitti.png"),
+(14,"resources/img/wrap.jpg"),
+(15,"resources/img/salad.jpg"),
+(16,"resources/img/jerk_chicken.jpg"),
+(17,"resources/img/hotdog.jpg"),
+(18,"resources/img/prawn.jpg"),
+(19,"resources/img/bacon.jpg"),
+(20,"resources/img/quesadilla.jpg"),
+(21,"resources/img/pork_lion.jpg"),
+(22,"resources/img/jasmine_rice.jpg"),
+(23,"resources/img/orzo.jpg"),
+(24,"resources/img/macncheese.jpg"),
+(25,"resources/img/beefsloppyjoe.jpg"),
+(26,"resources/img/brocolli.jpg"),
+(27,"resources/img/turkey_sausage.jpg"),
+(28,"resources/img/cheese_toast.jpg");
+
+
+
+
+
+INSERT INTO fooditems VALUES 
+(1,"Pasta",10,1,4,9,45,111,0),
+(2,"Pizza",10,1,4,11,75,111,1),
+(3,"Mac n Cheese",10,1,4,24,45,222,1),
+(4,"Cheese Burger",10,1,4,4,45,111,1),
+(5,"Ham Burger",10,1,4,4,45,333,1),
+(6,"Fries",10,1,4,6,45,111,1),
+(7,"Wedges",20,1,4,6,45,111,1),
+(8,"Pork Lion",20,1,4,21,45,222,1),
+(9,"Jerk Chicken",20,1,4,16,45,222,1),
+(10,"Beef Sloppy Joe",20,1,4,25,45,333,1),
+(11,"Orzo",20,1,4,23,45,222,1),
+(12,"Jasmine Rice",20,1,4,22,45,222,0),
+(13,"Zitti",30,1,4,13,45,333,1),
+(14,"Corns",30,1,4,1,45,111,1),
+(15,"Peas",30,1,4,10,45,222,1),
+(16,"Broccoli",30,1,4,26,45,333,0),
+(17,"Oat Meal",30,1,4,8,45,333,1),
+(18,"Turkey Sausage",30,1,4,27,45,333,1),
+(19,"Bacon",40,1,4,19,45,333,1),
+(20,"Wedges",40,1,4,6,45,111,1),
+(21,"Quesdilla",40,1,4,20,45,333,1),
+(22,"Cheese Toast",40,1,4,28,45,222,1),
+(23,"BBQ Chicken",40,1,4,5,45,333,1);
+
+INSERT INTO fooddate VALUES 
+('2016-11-15', 1),
+('2016-11-15', 2),
+('2016-11-15', 3),
+('2016-11-15', 4),
+('2016-11-15', 5),
+('2016-11-15', 6),
+('2016-11-15', 7),
+('2016-11-15', 8),
+('2016-11-15', 9),
+('2016-11-15', 10),
+('2016-11-15', 11),
+('2016-11-15', 12),
+('2016-11-15', 13),
+('2016-11-15', 14),
+('2016-11-15', 15),
+('2016-11-15', 16),
+('2016-11-15', 17),
+('2016-11-15', 18),
+('2016-11-15', 19),
+('2016-11-15', 20),
+('2016-11-15', 21),
+('2016-11-15', 22),
+('2016-11-15', 23);
+
+INSERT INTO fooddate VALUES 
+('2016-11-16', 1),
+('2016-11-16', 2),
+('2016-11-16', 3),
+('2016-11-16', 4),
+('2016-11-16', 5),
+('2016-11-16', 6),
+('2016-11-16', 7),
+('2016-11-16', 8),
+('2016-11-16', 9),
+('2016-11-16', 10),
+('2016-11-16', 11),
+('2016-11-16', 12),
+('2016-11-16', 13),
+('2016-11-16', 14),
+('2016-11-16', 15),
+('2016-11-16', 16),
+('2016-11-16', 17),
+('2016-11-16', 18),
+('2016-11-16', 19),
+('2016-11-16', 20),
+('2016-11-16', 21),
+('2016-11-16', 22),
+('2016-11-16', 23);
+
+INSERT INTO config VALUES 
+(1,"10:00", "23:59");
+
+insert into student values('nr123123', 'Navodit', 'nr123@albany.edu', 1);
+
+Below Commands are for Demo only
+ 
+insert into quadinfo values(50,"Alumini");
+insert into fooditems values(24,"Pasta",50,1,4,9,45,111,1);
+
+delete from fooditems where fooditemid=24;
+delete from quadinfo where quad_id=50;
+
+insert into mealcourse values (444, 'Snacks');
+insert into fooditems values(25,"Pasta",40,1,4,9,45,444,1);
+
+delete from fooditems where fooditemid=25;
+delete from mealcourse where mealcourse_id=444;
+
+delete from foodselected;

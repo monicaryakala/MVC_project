@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="ManagerInfo" table="ManagerInfo">
+    	<id name="ManagerID" column="managerID" type="string"></id> 
+        <property name="ManagerName" type="string">
+        	<column name="Manager_Name" length="100" not-null="true"/>
+        </property>  
+        <property name="ManagerPhoneNumber" type="string">
+        	<column name="Manager_PhoneNumber" length="100"/>
+        </property>
+        <property name="ManagerEmailID" type="string">
+        	<column name="Manager_EmailID" length="100" not-null="true"/>
+        </property>
+       <many-to-one name="Quad" class="com.albany.edu.fwp.model.QuadInfo" fetch="select">
+            <column name="quadID" not-null="true" />
+        </many-to-one> 
+                        
+    </class> 
+</hibernate-mapping>

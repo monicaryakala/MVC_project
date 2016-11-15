@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="Student" table="Student">
+        <id name="studentId" type="string" column="StudentID">
+        </id>
+        <property name="name" type="string">
+        	<column name="Name" length="100" not-null="true"/>
+        </property>
+        <property name="studentEmail" type="string">
+        	<column name="Student_EmailAddress" length="100" not-null="true"/>
+        </property>
+        <property name="year" type="java.lang.Integer">
+        	<column name="Year" length="45" not-null="true"/>
+        </property>
+        <set name="foodSelections" table="FoodSelected"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="StudentID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FoodSelected" />
+        </set>
+        
+        <set name="feedBack" table="FeedBack"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="StudentID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FeedBack" />
+        </set>
+    </class> 
+</hibernate-mapping>

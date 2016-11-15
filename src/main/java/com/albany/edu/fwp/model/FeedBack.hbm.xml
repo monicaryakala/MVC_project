@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="FeedBack" table="FeedBack">
+        <id name="feedBackId" column="FeedBackID">        	
+            <generator class="native"/>
+        </id>
+        <property name="description" type="string">
+        	<column name="FeedBack_Desc" length="1000" not-null="true"/>
+        </property>  
+        <many-to-one name="quadInfo" class="com.albany.edu.fwp.model.QuadInfo" fetch="select">
+            <column name="Quad_ID" not-null="true" />
+        </many-to-one>       
+         
+        <many-to-one name="student" class="com.albany.edu.fwp.model.Student" fetch="select">
+            <column name="StudentID" not-null="true" />
+        </many-to-one> 
+        
+    </class> 
+</hibernate-mapping>

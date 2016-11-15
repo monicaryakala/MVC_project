@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="MealCourse" table="mealcourse">
+        <id name="mealCourseId" type="java.lang.Integer" column="MealCourse_ID">
+        </id>
+        <property name="mealCourseName" type="string">
+        	<column name="MealCourse_Name" length="100" not-null="true"/>
+        </property>        
+        <set name="foodItems" table="FoodItems"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MealCourse_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.albany.edu.fwp.model.FoodItems" />
+        </set>
+        
+    </class> 
+</hibernate-mapping>

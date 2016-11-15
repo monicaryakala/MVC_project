@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.albany.edu.fwp.model">
+    <class name="FoodDate" table="FoodDate">
+              
+        <composite-id>
+			<key-property name="foodDate" column="FoodDate" type="date"  />
+			<key-many-to-one name="foodItems" class="com.albany.edu.fwp.model.FoodItems" column="FoodItemID" />
+		</composite-id>
+        
+    </class> 
+</hibernate-mapping>

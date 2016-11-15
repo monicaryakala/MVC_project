@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Users>
+	<Manager>
+		<UserName>mr123123</UserName>
+		<Password>Test1234</Password>
+		<FirstTimeUser>N</FirstTimeUser>
+	</Manager>
+	<Student>
+		<UserName>nr123123</UserName>
+		<Password>Test1234</Password>
+		<FirstTimeUser>N</FirstTimeUser>
+	</Student>
+	<Admin>
+		<UserName>ad123123</UserName>
+		<Password>Test1234</Password>
+		<FirstTimeUser>N</FirstTimeUser>
+	</Admin>	
+</Users>

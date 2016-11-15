@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        
+    <bean id="studentActionBean" class="com.albany.edu.fwp.action.StudentAction">
+        <property name="foodItemsDAO" ref="foodItemsDAO" />
+        <property name="quadInfoDAO" ref="quadInfoDAO" />
+        <property name="mealCourseDAO" ref="mealCourseDAO" />
+        <property name="studentDAO" ref="studentDAO" />
+        <property name="foodSelectedDAO" ref="foodSelectedDAO" />
+        <property name="configDAO" ref="configDAO" />
+    </bean>
+    <bean id="quadActionBean" class="com.albany.edu.fwp.action.QuadAction">
+        <property name="quadInfoDAO" ref="quadInfoDAO" />
+        <property name="mealCourseDAO" ref="mealCourseDAO" />
+    </bean>
+    <bean id="mealCourseActionBean" class="com.albany.edu.fwp.action.MealCourseAction">
+        <property name="quadInfoDAO" ref="quadInfoDAO" />
+        <property name="mealCourseDAO" ref="mealCourseDAO" />
+    </bean>
+    <bean id="uploadActionBean" class="com.albany.edu.fwp.action.UploadAction">        
+    </bean>
+    
+    <bean id="reportActionBean" class="com.albany.edu.fwp.action.ReportAction">
+        <property name="foodItemsDAO" ref="foodItemsDAO" />
+        <property name="quadInfoDAO" ref="quadInfoDAO" />
+        <property name="mealCourseDAO" ref="mealCourseDAO" />
+        <property name="studentDAO" ref="studentDAO" />
+        <property name="foodSelectedDAO" ref="foodSelectedDAO" />
+    </bean>
+    
+    <bean id="managerActionBean" class="com.albany.edu.fwp.action.ManagerAction">
+        <property name="foodItemsDAO" ref="foodItemsDAO" />
+        <property name="mealCourseDAO" ref="mealCourseDAO" />
+        <property name="imagesDAO" ref="imagesDAO" />
+        <property name="quadInfoDAO" ref="quadInfoDAO" />
+
+        <property name="foodDateDAO" ref="foodDateDAO" />
+
+        <property name="foodSelectedDAO" ref="foodSelectedDAO" />
+        <property name="feedBackDAO" ref="feedBackDAO" />
+
+    </bean>
+    
+       
+    <bean id="feedBackActionBean" class="com.albany.edu.fwp.action.FeedBackAction">
+    	<property name="feedBackDAO" ref="feedBackDAO" />
+    	<property name="studentDAO" ref="studentDAO" />
+    	<property name="quadInfoDAO" ref="quadInfoDAO" />
+    </bean>
+    
+    <bean id="configActionBean" class="com.albany.edu.fwp.action.ConfigAction">
+    	<property name="configDAO" ref="configDAO" />
+    </bean>
+    
+    <bean id="loginActionBean" class="com.albany.edu.fwp.action.LoginAction">
+    <property name="managerInfoDAO" ref="managerInfoDAO" />
+    </bean>
+    
+    <bean id="setDateActionBean" class="com.albany.edu.fwp.action.SetDateAction">
+    </bean>
+    
+    <bean id="logoutActionBean" class="com.albany.edu.fwp.action.LogoutAction">
+    </bean>
+ 
+    <bean id="adminActionBean" class="com.albany.edu.fwp.action.AdminAction">
+        <property name="managerInfoDAO" ref="managerInfoDAO" />
+        <property name="quadInfoDAO" ref="quadInfoDAO" />
+    </bean>
+    
+    <bean id="managerInfoDAO" class="com.albany.edu.fwp.dao.ManagerInfoDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    
+    <bean id="student" 
+    		class="com.albany.edu.fwp.model.Student">
+        
+    </bean>
+    
+    <bean id="selectActionBean" class="com.albany.edu.fwp.action.SelectAction">    
+    	<property name="studentDAO" ref="studentDAO" />
+    	<property name="student" ref="student" />
+    	<property name="AesEncryption" ref="AesEncryption" />
+    </bean> 
+    
+    <bean id="AesEncryption" class="com.albany.edu.fwp.dao.AesEncryptionImpl">      	
+    </bean>  
+    
+     
+ 
+	<bean id="foodItemsDAO" class="com.albany.edu.fwp.dao.FoodItemsDAOImpl">
+        <constructor-arg index="0">
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+        <constructor-arg index="1">
+            <ref bean="quadInfoDAO" />
+        </constructor-arg>
+        <constructor-arg index="2">
+            <ref bean="mealCourseDAO" />
+        </constructor-arg>
+        <constructor-arg index="3">
+            <ref bean="imagesDAO" />
+        </constructor-arg>
+        <constructor-arg index="4">
+            <ref bean="foodDateDAO" />
+        </constructor-arg>
+        
+    </bean> 
+    <bean id="foodDateDAO" class="com.albany.edu.fwp.dao.FoodDateDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    <bean id="foodSelectedDAO" class="com.albany.edu.fwp.dao.FoodSelectedDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    <bean id="studentDAO" class="com.albany.edu.fwp.dao.StudentDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    <bean id="quadInfoDAO" class="com.albany.edu.fwp.dao.QuadInfoDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    <bean id="mealCourseDAO" class="com.albany.edu.fwp.dao.MealCourseDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    <bean id="imagesDAO" class="com.albany.edu.fwp.dao.ImagesDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    
+    <bean class="com.albany.edu.fwp.dao.ImagesDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    
+    <bean id="feedBackDAO" class="com.albany.edu.fwp.dao.FeedBackDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+    
+    <bean id="configDAO" class="com.albany.edu.fwp.dao.ConfigDAOImpl">
+        <constructor-arg>
+            <ref bean="sessionFactory" />
+        </constructor-arg>
+    </bean>
+ 
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+        <property name="hibernateProperties">
+        <props>     
+            <prop key="hibernate.dialect"> org.hibernate.dialect.MySQLDialect </prop>
+            <prop key="hibernate.max_fetch_depth">3</prop>
+            <prop key="hibernate.jdbc.fetch_size">50</prop>
+            <prop key="hibernate.jdbc.batch_size">10</prop>
+            <prop key="hibernate.show_sql">true</prop>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+
+        </props>
+    </property>
+    </bean>
+     
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/fwp" />
+        <property name="username" value="root" />
+        <property name="password" value="admin" />
+    </bean>
+    
+    <tx:annotation-driven />     
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+</beans>

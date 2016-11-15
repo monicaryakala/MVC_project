@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<company>
+<student>
+ <studentid id="as132736">
+  <name>Amit</name>
+  <password>Test12345</password>
+  <address>SE@kirak.edu</address>
+  <year>1990</year>
+ </studentid>
+ <studentid id="sr123123">
+  <name>Shilpa</name>
+  <password>Test12345</password>
+  <address>DataBase@1234</address>
+  <year>2005</year>
+ </studentid>
+</student>
+<manager>
+</manager>
+<admin>
+</admin>
+</company>
